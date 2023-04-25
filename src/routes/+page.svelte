@@ -5,19 +5,19 @@
 
 	const products: Product[] = [
 		{
-			id: 'price_1N0egkIrPOgJLuRzKrCnjWmg',
+			id: 'price_1N0pfqIrPOgJLuRzXgayPAM0',
 			name: 'Coffee',
-			price: 5
+			price: 84
 		},
 		{
-			id: 'price_1McfbuGEQ8u28rQ5mEO9kZeB',
+			id: 'price_1N0ph5IrPOgJLuRzzpVzAaUG',
 			name: 'Sunglasses',
-			price: 10
+			price: 450
 		},
 		{
-			id: 'price_1McfcaGEQ8u28rQ56pMnyDz1',
+			id: 'price_1N0phrIrPOgJLuRzSiHeFF9d',
 			name: 'Water Bottle',
-			price: 15
+			price: 14
 		}
 	];
 
