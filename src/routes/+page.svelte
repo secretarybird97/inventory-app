@@ -2,6 +2,7 @@
 	import ProductCard from '../lib/productCard.svelte';
 	import { get } from 'svelte/store';
 	import { cartItems } from '../cart';
+	import { LightSwitch } from '@skeletonlabs/skeleton';
 
 	const products: Product[] = [
 		{
@@ -39,6 +40,7 @@
 	}
 </script>
 
+<header><LightSwitch /></header>
 <div class="container h-full mx-auto flex justify-center items-center">
 	<div class="grid grid-cols-3 gap-4">
 		<div class="col-span-3">
