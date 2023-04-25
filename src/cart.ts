@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 // React Context
 import { writable, get } from 'svelte/store';
 

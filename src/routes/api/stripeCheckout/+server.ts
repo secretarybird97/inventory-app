@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 import type { RequestHandler } from './$types';
 import Stripe from 'stripe';
 
