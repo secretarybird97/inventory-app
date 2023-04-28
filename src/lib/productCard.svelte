@@ -2,7 +2,12 @@
 	import { get } from 'svelte/store';
 	import { cartItems, addToCart, removeFromCart } from '../cart';
 
-	export let product: Product = { id: '', name: '', price: 0 };
+	export let product: Product = {
+		id: '',
+		name: '',
+		price: 0,
+		img: ''
+	};
 
 	let cart = get(cartItems); // [ { id: "1", quantity: 6 }, { id: "2", quantity: 3 } ]
 	// id: "1"
@@ -37,5 +42,12 @@
 		<button class="p-2 rounded variant-glass-error" on:click={() => removeFromCart(product.id)}
 			>Remove</button
 		>
+
+		<!-- Add image to card-->
+		{#if product.img !== undefined}
+			<img src={product.img} alt="" />
+		{:else}
+			<img src="https://picsum.photos/200/300" alt="" />
+		{/if}
 	</footer>
 </div>

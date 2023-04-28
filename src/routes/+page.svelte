@@ -12,14 +12,18 @@
 	let prod: Product[] = [];
 	_products.then((response) => {
 		response.data.forEach(async (item) => {
-			let price = await _getPriceData(item.default_price?.toString());
-			prod.push({
-				id: item.default_price?.toString(),
-				name: item.name,
-				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-				// @ts-ignore
-				price: price.unit_amount / 100
-			});
+			if (item.active !== false) {
+				let price = await _getPriceData(item.default_price?.toString());
+				prod.push({
+					id: item.default_price?.toString(),
+					name: item.name,
+					// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+					// @ts-ignore
+					price: price.unit_amount / 100,
+					img: item.images[0]
+				});
+			}
+
 			prod = prod;
 		});
 	});
@@ -49,7 +53,7 @@
 	<div class="grid grid-cols-3 gap-4">
 		<div class="col-span-3">
 			<h1>Messicani</h1>
-			<h3 class="italic">"A veces lo mas simple es lo mas elegante"</h3>
+			<h3 class="italic">"A veces lo más simple es lo más elegante"</h3>
 		</div>
 		{#each prod as product}
 			<ProductCard {product} />
