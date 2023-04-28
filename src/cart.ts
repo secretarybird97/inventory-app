@@ -6,7 +6,7 @@ export const cartItems = writable<CartItem[]>([]);
 // [ { id: "1", quantity: 4 }, { id: "2", quantity: 1 } ]
 
 // add to cart (add one)
-export const addToCart = (id: string) => {
+export const addToCart = (id: string | any) => {
 	// cartItems is a writable, not a value
 	// get(cartItems) ->  [ { id: "1", quantity: 6 }, { id: "2", quantity: 1 }, { id: "3", quantity: 1} ]
 	let items = get(cartItems);
@@ -39,7 +39,7 @@ export const addToCart = (id: string) => {
 };
 
 // remove from cart (remove one) -> change the value of the writable
-export const removeFromCart = (id: string) => {
+export const removeFromCart = (id: string | any) => {
 	let items = get(cartItems);
 	let itemPosition = items.findIndex(
 		(item) => {

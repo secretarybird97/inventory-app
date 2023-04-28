@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { get } from 'svelte/store';
 	import { cartItems, addToCart, removeFromCart } from '../cart';
+
 	export let product: Product = { id: '', name: '', price: 0 };
+
 	let cart = get(cartItems); // [ { id: "1", quantity: 6 }, { id: "2", quantity: 3 } ]
 	// id: "1"
 	let cartItemIndex = cart.findIndex((item) => {

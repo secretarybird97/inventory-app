@@ -49,3 +49,8 @@ export async function _getProducts() {
 	const products = await _stripe.products.list();
 	return products;
 }
+
+export async function _getPriceData(productId: string | any) {
+	const price = await _stripe.prices.retrieve(productId);
+	return price;
+}

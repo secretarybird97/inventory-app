@@ -9,9 +9,9 @@ declare namespace App {
 }
 
 declare class Product {
-	id: string;
+	id: string | null | undefined;
 	name: string;
-	price: number;
+	price: number | null | undefined;
 }
 
 declare class CartItem {

@@ -5,8 +5,6 @@
 	import '@skeletonlabs/skeleton/styles/all.css';
 	// Most of your app wide CSS should be put in this file
 	import '../app.postcss';
-
-	export const prerender = true;
 </script>
 
 <slot />
