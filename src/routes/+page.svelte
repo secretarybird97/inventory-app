@@ -3,6 +3,7 @@
 	import { get } from 'svelte/store';
 	import { cartItems } from '../cart';
 	import { LightSwitch } from '@skeletonlabs/skeleton';
+	import { _getProducts } from './api/stripeCheckout/+server';
 
 	const products: Product[] = [
 		{
@@ -21,6 +22,8 @@
 			price: 14
 		}
 	];
+
+	const _products = _getProducts();
 
 	async function checkout() {
 		await fetch('api/stripeCheckout', {

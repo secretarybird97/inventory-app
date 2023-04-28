@@ -4,7 +4,7 @@ import Stripe from 'stripe';
 
 const SECRET_STRIPE_KEY =
 	'sk_test_51N0b58IrPOgJLuRz4Wb2yfTesDUwl0XkEVytc3XdpM8HbgXFzxeym69Ctvbaz8FScWs1UuIeyssdr8ytWnCXfpGL0025XlmYXF';
-const stripe = new Stripe(SECRET_STRIPE_KEY, {
+const _stripe = new Stripe(SECRET_STRIPE_KEY, {
 	apiVersion: '2022-11-15'
 });
 
@@ -29,7 +29,7 @@ export const POST: RequestHandler = async ({ request }) => {
 	});
 
 	// It gives us a URL for the person to check out with
-	const session = await stripe.checkout.sessions.create({
+	const session = await _stripe.checkout.sessions.create({
 		line_items: lineItems,
 		mode: 'payment',
 		success_url: 'http://localhost:5173/success',
@@ -44,3 +44,8 @@ export const POST: RequestHandler = async ({ request }) => {
 		}
 	);
 };
+
+export async function _getProducts() {
+	const products = await _stripe.products.list();
+	return products;
+}
