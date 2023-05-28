@@ -32,8 +32,8 @@ export const POST: RequestHandler = async ({ request }) => {
 	const session = await _stripe.checkout.sessions.create({
 		line_items: lineItems,
 		mode: 'payment',
-		success_url: 'http://localhost:5173/success',
-		cancel_url: 'http://localhost:5173/cancel'
+		success_url: '/secretarybird97.github.io/success',
+		cancel_url: '/secretarybird97.github.io/cancel'
 	});
 
 	return new Response(
