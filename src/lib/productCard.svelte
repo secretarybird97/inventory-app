@@ -29,25 +29,27 @@
 	<header class="card-header"><h2>{product.name}</h2></header>
 	{#if cartProduct !== undefined}
 		<div class="card-body px-4">
-			Quantity: <strong>{cartProduct.quantity}</strong>
+			Cantidad: <strong>{cartProduct.quantity}</strong>
 		</div>
 	{/if}
 	<div class="card-body px-4">
-		Price: ${product.price}
+		Precio: ${product.price} MXN
 	</div>
 	<footer class="card-footer">
 		<button class="p-2 rounded variant-glass-primary" on:click={() => addToCart(product.id)}
-			>Add</button
+			>Agragar</button
 		>
 		<button class="p-2 rounded variant-glass-error" on:click={() => removeFromCart(product.id)}
-			>Remove</button
+			>Remover</button
 		>
 
 		<!-- Add image to card-->
-		{#if product.img !== undefined}
-			<img src={product.img} alt="" />
-		{:else}
-			<img src="https://picsum.photos/200/300" alt="" />
-		{/if}
+		<div class="h-full justify-center items-center p-2 flex">
+			{#if product.img !== undefined}
+				<img src={product.img} alt="" />
+			{:else}
+				<img src="https://picsum.photos/200/300" alt="" />
+			{/if}
+		</div>
 	</footer>
 </div>
