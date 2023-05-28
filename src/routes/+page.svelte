@@ -8,23 +8,24 @@
 	function LightMode() {
 		setModeCurrent(true);
 	}
+
 	const _products = _getProducts();
 	// console.log(_products);
-	LightMode();
+	// LightMode();
 	let prod: Product[] = [];
 	_products.then((response) => {
 		response.data.forEach(async (item) => {
-			// if (item.active === true) {
-			let price = await _getPriceData(item.default_price?.toString());
-			prod.push({
-				id: item.default_price?.toString(),
-				name: item.name,
-				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-				// @ts-ignore
-				price: price.unit_amount / 100,
-				img: item.images[0]
-			});
-			//}
+			if (item.active === true) {
+				let price = await _getPriceData(item.default_price?.toString());
+				prod.push({
+					id: item.default_price?.toString(),
+					name: item.name,
+					// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+					// @ts-ignore
+					price: price.unit_amount / 100,
+					img: item.images[0]
+				});
+			}
 
 			prod = prod;
 		});
