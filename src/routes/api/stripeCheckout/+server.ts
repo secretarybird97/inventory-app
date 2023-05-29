@@ -33,8 +33,8 @@ export const POST: RequestHandler = async ({ request }) => {
 		line_items: lineItems,
 		mode: 'payment',
 		// success_url: 'http://localhost:3000/success',
-		success_url: 'https://inventory-ifrhvj19s-secretarybird97.vercel.app/success',
-		cancel_url: 'https://inventory-ifrhvj19s-secretarybird97.vercel.app/cancel'
+		success_url: 'https://inventory-app-secretarybird97.vercel.app/success',
+		cancel_url: 'https://inventory-app-secretarybird97.vercel.app/cancel'
 	});
 
 	return new Response(
