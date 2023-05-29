@@ -5,6 +5,10 @@
 	import '@skeletonlabs/skeleton/styles/all.css';
 	// Most of your app wide CSS should be put in this file
 	import '../app.postcss';
+	import { autoModeWatcher } from '@skeletonlabs/skeleton';
 </script>
 
 <slot />
+<svelte:head
+	>{@html `<script>${autoModeWatcher.toString()} autoModeWatcher();</script>`}</svelte:head
+>

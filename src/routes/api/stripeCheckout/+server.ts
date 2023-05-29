@@ -32,8 +32,8 @@ export const POST: RequestHandler = async ({ request }) => {
 	const session = await _stripe.checkout.sessions.create({
 		line_items: lineItems,
 		mode: 'payment',
-		success_url: 'http://localhost:5173/success',
-		cancel_url: 'http://localhost:5173/cancel'
+		success_url: 'inventory-qtqonbldr-secretarybird97.vercel.app/success',
+		cancel_url: 'inventory-qtqonbldr-secretarybird97.vercel.app/cancel'
 	});
 
 	return new Response(

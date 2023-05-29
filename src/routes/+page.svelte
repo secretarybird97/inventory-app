@@ -2,16 +2,10 @@
 	import ProductCard from '../lib/productCard.svelte';
 	import { get } from 'svelte/store';
 	import { cartItems } from '../cart';
-	import { setModeCurrent } from '@skeletonlabs/skeleton';
 	import { _getProducts, _getPriceData } from './api/stripeCheckout/+server';
 
-	function LightMode() {
-		setModeCurrent(true);
-	}
-
 	const _products = _getProducts();
-	// console.log(_products);
-	// LightMode();
+	console.log(_products);
 	let prod: Product[] = [];
 	_products.then((response) => {
 		response.data.forEach(async (item) => {
