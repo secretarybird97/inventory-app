@@ -8,10 +8,9 @@
 	function LightMode() {
 		setModeCurrent(true);
 	}
-
 	const _products = _getProducts();
 	// console.log(_products);
-	// LightMode();
+
 	let prod: Product[] = [];
 	_products.then((response) => {
 		response.data.forEach(async (item) => {
@@ -52,30 +51,28 @@
 </script>
 
 <div class="container h-full mx-auto flex justify-center items-center">
-	<body class="bg-transparent overflow-auto">
-		<div class=" grid grid-cols-3 gap-4">
+	<div class=" grid grid-cols-3 gap-4">
+		<div class="col-span-three">
+			<h1>Messicani</h1>
+			<h3>"A veces lo más simple es lo más elegante"</h3>
+		</div>
+		{#each prod as product}
+			<ProductCard {product} />
+		{:else}
+			<!--Loading animation-->
 			<div class="col-span-3">
-				<h1>Messicani</h1>
-				<h3>"A veces lo más simple es lo más elegante"</h3>
+				<div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900" />
 			</div>
+		{/each}
 
-			{#each prod as product}
-				<ProductCard {product} />
-			{:else}
-				<!--Loading animation-->
-				<div class="col-span-3">
-					<div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900" />
-				</div>
-			{/each}
+    	<!--Position checkout button to the right-->
+    	<div class="col-span-3">
+    		<button class="btn variant-filled-primary" on:click={() => checkout()}
+    			>Checkout with Stripe API</button
+    		>
+    	</div>
+    </div>
 
-			<!--Position checkout button to the right-->
-			<div class="col-span-3">
-				<button class="btn variant-filled-primary" on:click={() => checkout()}
-					>Checkout with Stripe API</button
-				>
-			</div>
-		</div></body
-	>
 </div>
 
 <style>
@@ -87,6 +84,11 @@
 		align-items: center;
 		/* make the page full height */
 		height: 100vh;
+	}
+
+	.col-span-three {
+		grid-column: span 3;
+		z-index: 1;
 	}
 
 	/* Make checkout button fixed to the bottom */

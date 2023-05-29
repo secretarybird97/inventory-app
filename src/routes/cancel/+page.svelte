@@ -1,4 +1,8 @@
-<!-- localhost:5173/cancel -->
+<script lang="ts">
+	import { setModeCurrent } from '@skeletonlabs/skeleton';
+
+	setModeCurrent(true);
+</script>
 
 <div class="container h-full mx-auto flex justify-center items-center">
 	<div class="grid grid-cols-3 gap-4">
