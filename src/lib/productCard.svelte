@@ -37,10 +37,10 @@
 	</div>
 	<footer class="card-footer">
 		<button class="p-2 rounded variant-glass-primary" on:click={() => addToCart(product.id)}
-			>Agragar</button
+			>Agregar</button
 		>
 		<button class="p-2 rounded variant-glass-error" on:click={() => removeFromCart(product.id)}
-			>Remover</button
+			>Eliminar</button
 		>
 
 		<!-- Add image to card-->
