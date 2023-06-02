@@ -25,7 +25,7 @@
 		});
 	});
 
-	// console.log(prod);
+	console.log(prod);
 
 	async function checkout() {
 		await fetch('api/stripeCheckout', {
